@@ -26,3 +26,5 @@
 * Gravatar (user profile icons)
 * JsonWebToken
 * PG
+* Concurrently
+* Nodemon
