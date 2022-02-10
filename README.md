@@ -10,6 +10,10 @@
 
 > PG_ELEPHANT_URL: l have slacked the code. This string will allow us to connect to an Elephant Instance l created, so have are all connected to the same database at all times.
 
+> NODE_ENV = development 
+
+> PORT = 3001
+
 3. Run `npm install` in the root folder.
 4. Change Directory to client `cd client`.
 5. In the Client folder run `npm install`. In the client folder is where the frontend is.
