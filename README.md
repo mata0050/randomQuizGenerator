@@ -5,7 +5,8 @@
 
 1. Clone repo with `git clone https://github.com/mata0050/randomQuizGenerator.git`
 2. Setup Env variables
-   > JWT_SECRET: l have slacked the code
+
+> JWT_SECRET: l have slacked the code
 
 > PG_ELEPHANT_URL: l have slacked the code. This string will allow us to connect to an Elephant Instance l created, so have are all connected to the same database at all times.
 
