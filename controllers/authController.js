@@ -17,6 +17,7 @@ const getProfile = asyncHandler(async (req, res) => {
   res.status(200).json(rows);
 });
 
+
 // @route    POST /
 // @desc     Login User - get user profile & get token
 // @access   Public
