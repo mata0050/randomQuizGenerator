@@ -53,5 +53,6 @@ CREATE TABLE quiz_questions (
 CREATE TABLE score (
   id SERIAL PRIMARY KEY NOT NULL,
   quiz_questions_id INTEGER REFERENCES quiz_questions(id) ON DELETE CASCADE,
-  users_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+  users_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+   score BOOLEAN
 );
