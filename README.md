@@ -33,3 +33,8 @@
 * PG
 * Concurrently
 * Nodemon
+
+## ERD - Diagram 
+***
+
+![Screen Shot 2022-02-11 at 4 28 38 PM](https://user-images.githubusercontent.com/58061791/153672804-f175ebf4-8c42-4217-b30b-55ff30707089.png)
