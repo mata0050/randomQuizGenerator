@@ -1,0 +1,45 @@
+DROP TABLE IF EXISTS users CASCADE;
+
+DROP TABLE IF EXISTS language CASCADE;
+
+DROP TABLE IF EXISTS questions CASCADE;
+
+DROP TABLE IF EXISTS quiz CASCADE;
+
+DROP TABLE IF EXISTS quiz_questions CASCADE;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY NOT NULL,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  avatar VARCHAR(255) NOT NULL,
+  created_at VARCHAR(255) NOT NULL,
+  role DEFAULT student,
+  score INTEGER NOT NULL,
+);
+
+CREATE TABLE questions (
+  id SERIAL PRIMARY KEY NOT NULL,
+  question VARCHAR(255) NOT NULL,
+  answer_a VARCHAR(255) NOT NULL,
+  answer_b VARCHAR(255) NOT NULL,
+  answer_c VARCHAR(255) NOT NULL,
+  answer_d VARCHAR(255) NOT NULL,
+  correct_answer VARCHAR(255) NOT NULL,
+  language_id VARCHAR(255) NOT NULL,
+);
+
+CREATE TABLE quiz_questions (
+  id SERIAL PRIMARY KEY NOT NULL,
+  quiz_id VARCHAR(255) NOT NULL,
+  question_id VARCHAR(255) NOT NULL,
+);
+
+CREATE TABLE quiz (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  score INTEGER NOT NULL,
+);
+
