@@ -33,3 +33,9 @@
 * PG
 * Concurrently
 * Nodemon
+
+### Wire-Frame
+![wireframe-FP (1)](https://user-images.githubusercontent.com/91488574/153897181-31f8f7c9-dcf4-4c19-bd98-fcfb8d67e627.png)
+![wireframe-FP (2)](https://user-images.githubusercontent.com/91488574/153897194-98eeba8c-74b4-4948-88a7-8652882ac8dd.png)
+![wireframe-FP (3)](https://user-images.githubusercontent.com/91488574/153897205-aeb2889e-aa86-4dcd-8358-a1c728e4d6f4.png)
+![wireframe-FP](https://user-images.githubusercontent.com/91488574/153897339-280ba06f-e596-4b2c-8aff-3934169330e4.png)
