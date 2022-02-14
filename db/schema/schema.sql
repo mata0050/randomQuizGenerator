@@ -14,15 +14,16 @@ CREATE TABLE users (
   last_name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
+  score INTEGER NOT NULL,
   avatar VARCHAR(255) NOT NULL,
   created_at VARCHAR(255) NOT NULL,
   role DEFAULT student,
-  score INTEGER NOT NULL,
 );
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY NOT NULL,
   question VARCHAR(255) NOT NULL,
+  difficulty VARCHAR(255) NOT NULL,
   answer_a VARCHAR(255) NOT NULL,
   answer_b VARCHAR(255) NOT NULL,
   answer_c VARCHAR(255) NOT NULL,
