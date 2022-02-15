@@ -1,6 +1,12 @@
 import './App.css';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+// utils
+import setAuthToken from './utils/setAuthToken'
+import api from './utils/api';
+
+// Components
 import Home from './Components/HomePage/Home';
 import User from './Components/User/User';
 import Quiz from './Components/Quiz/Quiz';
@@ -9,23 +15,57 @@ import Header from './Components/Header/Header';
 import Login from './Components/Login/Login';
 import Signup from './Components/Signup/Signup';
 
-
 function App() {
+  const [userToken, setUserToken] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
+
+  // const getUserProfile = async () => {
+  //   if(userToken){
+  //     setAuthToken(userToken);
+  //   }
+  //   try {
+  //     const {data} = await api.get('/auth');
+  //     setUserProfile(data)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+
+  //   getUserProfile()
+  // },[userProfile])
+
+  // console.log(userProfile)
+
+  // check is token in localStorage
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setUserToken(localStorage.getItem('token'));
+    }
+  }, [userToken]);
+
   return (
     <BrowserRouter>
       <div>
-        <Header/>
+        <Header userToken={userToken} setUserToken={setUserToken} />
       </div>
+
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="user" element={<User/>}></Route>
-        <Route path="quiz" element={<Quiz/>}></Route>
-        <Route path="score" element={<Score/>}></Route>
-        <Route path="login" element={<Login/>}></Route>
-        <Route path="signup" element={<Signup/>}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='user' element={<User />}></Route>
+        <Route path='quiz' element={<Quiz />}></Route>
+        <Route path='score' element={<Score />}></Route>
+        <Route
+          path='login'
+          element={<Login setUserToken={setUserToken} />}
+        ></Route>
+        <Route
+          path='signup'
+          element={<Signup setUserToken={setUserToken} />}
+        ></Route>
       </Routes>
     </BrowserRouter>
-    
   );
 }
 
