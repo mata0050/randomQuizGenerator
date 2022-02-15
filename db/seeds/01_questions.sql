@@ -394,9 +394,9 @@ VALUES
   "7var_name",
   "answer_a",
   "The rules for writing an identifier is as follows:
-i) may contain lowercase/uppercase letters, digits or underscore(_) only
-ii) should start with a non-digit character
-iii) should not contain any special characters like @, $, etc.",
+  i) may contain lowercase/uppercase letters, digits or underscore(_) only
+  ii) should start with a non-digit character
+  iii) should not contain any special characters like @, $, etc.",
   "C++"
 ),
 (
