@@ -16,19 +16,19 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   score INTEGER NOT NULL,
   avatar VARCHAR(255) NOT NULL,
-  created_at VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP,
   role DEFAULT student,
 );
 
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY NOT NULL,
   question VARCHAR(255) NOT NULL,
-  difficulty VARCHAR(255) NOT NULL,
   answer_a VARCHAR(255) NOT NULL,
   answer_b VARCHAR(255) NOT NULL,
   answer_c VARCHAR(255) NOT NULL,
   answer_d VARCHAR(255) NOT NULL,
   correct_answer VARCHAR(255) NOT NULL,
+  explanation VARCHAR(255),
   language_id VARCHAR(255) NOT NULL,
 );
 
