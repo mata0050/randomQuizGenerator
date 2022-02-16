@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import './User.css';
+import './Quiz.css';
 
 // utils
 import api from '../../utils/api';
 
-function User() {
+function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
   const [formData, setFormData] = useState({
     limit: '',
     language: '',
@@ -23,16 +23,12 @@ function User() {
     e.preventDefault();
     try {
       const { data } = await api(`/api/questions/${language}/${limit}`);
-      setRedirect(true);
+      setCurrentQuiz(data);
+      setHideStartQuiz(!hideStartQuiz);
     } catch (error) {
       console.error(error);
     }
   };
-
-  // Redirect to Quiz
-  if(redirect) {
-    return <Navigate to='/quiz'/>
-  }
 
   return (
     <section className='quiz quiz-small'>
@@ -95,4 +91,4 @@ function User() {
   );
 }
 
-export default User;
+export default StartQuiz;

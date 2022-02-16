@@ -10,6 +10,7 @@ function Login({ setUserToken}) {
     email: '',
     password: '',
   });
+
   const [error, setError] = useState(false);
   const [redirect, setRedirect] = useState(false);
 
@@ -19,6 +20,8 @@ function Login({ setUserToken}) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+
 
   // Login a User
   const onSubmit = async (e) => {

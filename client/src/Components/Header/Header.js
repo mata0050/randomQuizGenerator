@@ -18,9 +18,9 @@ function Header({ userToken, setUserToken }) {
 
         {userToken !== null ? (
           <>
-            <NavLink to='user'>
+            {/* <NavLink to='user'>
               <span>User</span>
-            </NavLink>
+            </NavLink> */}
             <NavLink to='quiz'>
               <span>Quiz</span>
             </NavLink>

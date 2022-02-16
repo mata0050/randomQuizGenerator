@@ -1,28 +1,31 @@
-import React from "react";
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import './Quiz.css';
 
-function Quiz() {
+// utils
+import api from '../../utils/api';
+import Questions from './Questions';
+import StartQuiz from './StartQuiz';
+
+function Quiz({ currentQuiz, setCurrentQuiz, score, setScore }) {
+  const [hideStartQuiz, setHideStartQuiz] = useState(true);
+
   return (
-    // <div className="container">
-    //   <div>
-    //     <div class="row justify-content-evenly">
-    //       <div class="col-4">option A</div>
-    //       <div class="col-4">option B</div>
-    //     </div>
-    //     <div class="row justify-content-evenly">
-    //       <div class="col-4">option C</div>
-    //       <div class="col-4">option D</div>
-    //     </div>
-    //   </div>
-    // </div>
-    <div class="container">
-  <div class="row row-cols-2" >
-    <div class="col">Column</div>
-    <div class="col">Column</div>
-    <div class="col">Column</div>
-    <div class="col">Column</div>
-  </div>
-</div>
+    <section>
+      {hideStartQuiz ? (
+        <StartQuiz
+          setCurrentQuiz={setCurrentQuiz}
+          setHideStartQuiz={setHideStartQuiz}
+          hideStartQuiz={hideStartQuiz}
+        />
+      ) : (
+        <Questions
+          score={score}
+          setScore={setScore}
+          currentQuiz={currentQuiz}
+        />
+      )}
+    </section>
   );
 }
 

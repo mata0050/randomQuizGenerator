@@ -41,6 +41,8 @@ CREATE TABLE quiz (
 CREATE TABLE quiz_questions (
   id SERIAL PRIMARY KEY NOT NULL,
   questions_id INTEGER REFERENCES questions(id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   quiz_id INTEGER REFERENCES quiz(id) ON DELETE CASCADE
 );
+
 

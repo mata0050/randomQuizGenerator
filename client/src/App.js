@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // utils
-import setAuthToken from './utils/setAuthToken'
+import setAuthToken from './utils/setAuthToken';
 import api from './utils/api';
 
 // Components
 import Home from './Components/HomePage/Home';
-import User from './Components/User/User';
+
 import Quiz from './Components/Quiz/Quiz';
 import Score from './Components/FinalScore/Score';
 import Header from './Components/Header/Header';
@@ -18,6 +18,8 @@ import Signup from './Components/Signup/Signup';
 function App() {
   const [userToken, setUserToken] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
+  const [currentQuiz, setCurrentQuiz] = useState([]);
+  const [score, setScore] = useState(0);
 
   // const getUserProfile = async () => {
   //   if(userToken){
@@ -45,6 +47,7 @@ function App() {
     }
   }, [userToken]);
 
+  console.log(currentQuiz);
   return (
     <BrowserRouter>
       <div>
@@ -53,8 +56,17 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='user' element={<User />}></Route>
-        <Route path='quiz' element={<Quiz />}></Route>
+        <Route
+          path='quiz'
+          element={
+            <Quiz
+              currentQuiz={currentQuiz}
+              setCurrentQuiz={setCurrentQuiz}
+              score={score}
+              setScore={setScore}
+            />
+          }
+        ></Route>
         <Route path='score' element={<Score />}></Route>
         <Route
           path='login'
