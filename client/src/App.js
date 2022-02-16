@@ -67,7 +67,7 @@ function App() {
             />
           }
         ></Route>
-        <Route path='score' element={<Score />}></Route>
+        <Route path='score' element={<Score score={score} currentQuiz={currentQuiz}/>}></Route>
         <Route
           path='login'
           element={<Login setUserToken={setUserToken} />}

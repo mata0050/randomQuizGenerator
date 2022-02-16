@@ -34,7 +34,14 @@ header{
   background-color: #E5E5E5;
   font-size:1.5rem;
   padding: 10px;
+  cursor: pointer;
 }
+
+.answers p:hover{
+  background-color: #ccc;
+}
+
+
 
 footer{
   display: flex;
