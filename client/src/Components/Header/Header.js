@@ -24,9 +24,7 @@ function Header({ userToken, setUserToken }) {
             <NavLink to='quiz'>
               <span>Quiz</span>
             </NavLink>
-            <NavLink to='score'>
-              <span>Score</span>
-            </NavLink>
+       
             <NavLink to='' onClick={logout}>
               <span className='button'>Logout</span>
             </NavLink>
