@@ -18,6 +18,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
   // go to the nextQuestion
   const nextQuestion = () => {
     if (currentQuiz.length === arrlength) {
+      // after last quiz add score to DB
       addScore(currentQuiz, score);
       navigate('/score');
     }
