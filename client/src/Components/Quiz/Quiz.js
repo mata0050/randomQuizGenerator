@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+// CSS
 import './Quiz.css';
 
 // Components
@@ -7,6 +9,13 @@ import StartQuiz from './StartQuiz';
 
 function Quiz({ currentQuiz, setCurrentQuiz, score, setScore }) {
   const [hideStartQuiz, setHideStartQuiz] = useState(true);
+
+  useEffect(() => {
+    if (hideStartQuiz) {
+      setScore(0);
+      console.log(score);
+    }
+  }, [hideStartQuiz, setScore, score]);
 
   return (
     <section>

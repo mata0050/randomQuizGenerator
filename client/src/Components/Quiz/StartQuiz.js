@@ -12,6 +12,7 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
   });
 
   const { limit, language } = formData;
+  
 
   const onChange = (e) => {
     const { name, value } = e.target;
