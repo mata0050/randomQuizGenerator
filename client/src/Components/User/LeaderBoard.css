@@ -6,13 +6,6 @@ table {
   background: rgba(231, 231, 231, 0.342);
 }
 
-table,
-tr,
-th,
-td {
-  border: none;
-}
-
 .bold {
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
