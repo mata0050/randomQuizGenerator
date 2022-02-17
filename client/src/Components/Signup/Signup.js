@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// utils
-import api from '../../utils/api';
 import { toast } from 'react-toastify';
+import signUpUser from '../../api/signUpUser';
 
 function Signup({ setUserToken }) {
   const [formData, setFormData] = useState({
@@ -33,18 +31,15 @@ function Signup({ setUserToken }) {
     };
 
     if (password !== password2) {
-      toast.error(`Passwords don't match`);
+      return toast.error(`Passwords don't match`);
     }
-    try {
-      const { data } = await api.post('/register', user);
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('userProfile', JSON.stringify(data.userProfile));
-      setUserToken(data.token);
-      navigate('/quiz');
-    } catch (error) {
-      toast.error(error);
-    }
+
+    signUpUser(setUserToken, user)
   };
+
+  if (localStorage.getItem('token')) {
+    navigate('/quiz');
+  }
 
   return (
     <>

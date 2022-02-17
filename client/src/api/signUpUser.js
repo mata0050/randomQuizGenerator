@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 // utils
 import api from '../utils/api';
 
-const loginUser = async (setUserToken, formData) => {
+const signUpUser = async (setUserToken, user) => {
   try {
-    const { data } = await api.post('/auth', formData);
+    const { data } = await api.post('/register', user);
     localStorage.setItem('token', data.token);
     localStorage.setItem('userProfile', JSON.stringify(data.userProfile));
     setUserToken(data.token);
@@ -14,4 +14,4 @@ const loginUser = async (setUserToken, formData) => {
   }
 };
 
-export default loginUser;
+export default signUpUser;
