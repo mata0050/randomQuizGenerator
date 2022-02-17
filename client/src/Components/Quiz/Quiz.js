@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import './Quiz.css';
 
-// utils
-import api from '../../utils/api';
+// Components
 import Questions from './Questions';
 import StartQuiz from './StartQuiz';
 
