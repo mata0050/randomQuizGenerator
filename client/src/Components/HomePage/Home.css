@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url("../../images/quizimg2.jpeg");
+  background-image: url("../../images/quizimg3.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -13,10 +13,10 @@
   
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
-  margin-left: 20px;
-  color:rgb(173, 121, 24);
+  margin-left: 150px;
+  color:black;
 }
 .item2 {
-  margin-left: 20px;
-  color:rgb(173, 121, 24);
+  margin-left: 10px;
+  color:black;
 }

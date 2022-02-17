@@ -24,6 +24,7 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
   };
 
   return (
+    <body>
     <section className='quiz quiz-small'>
       <form onSubmit={onSubmit}>
         <h2 style={{ marginBottom: '2rem' }}>Let's start quiz</h2>
@@ -81,6 +82,7 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
         </button>
       </form>
     </section>
+    </body>
   );
 }
 
