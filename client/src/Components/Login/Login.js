@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
-// utils
-import api from '../../utils/api';
+// api call
+import loginUser from '../../api/loginUser';
 
 function Login({ setUserToken }) {
   const [formData, setFormData] = useState({
@@ -19,21 +18,14 @@ function Login({ setUserToken }) {
   };
 
   // Login a User
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    try {
-      const { data } = await api.post('/auth', formData);
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('userProfile', JSON.stringify(data.userProfile));
-      setUserToken(data.token);
-
-      // Redirect after login to quiz page
-      navigate('/quiz');
-    } catch (error) {
-      toast(error);
-    }
+    loginUser(setUserToken, formData);
   };
 
+  if (localStorage.getItem('token')) {
+    navigate('/quiz');
+  }
   return (
     <>
       <div>Login</div>
