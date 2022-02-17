@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
-import Alert from '../ErrorMessage/Alert';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // utils
 import api from '../../utils/api';
 
-function Login({ setUserToken}) {
+function Login({ setUserToken }) {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
-  const [error, setError] = useState(false);
-  const [redirect, setRedirect] = useState(false);
-
   const { email, password } = formData;
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-
 
   // Login a User
   const onSubmit = async (e) => {
@@ -30,22 +25,17 @@ function Login({ setUserToken}) {
       const { data } = await api.post('/auth', formData);
       localStorage.setItem('token', data.token);
       localStorage.setItem('userProfile', JSON.stringify(data.userProfile));
-      setUserToken(data.token)
-      setRedirect(true);
+      setUserToken(data.token);
+
+      // Redirect after login to quiz page
+      navigate('/quiz');
     } catch (error) {
-      setError(true);
+      toast(error);
     }
   };
 
-  // Redirect after login to quiz page
-  if (redirect) {
-    return <Navigate to='/quiz' />;
-  }
   return (
     <>
-      {error && (
-        <Alert msg={'Login Error Please Try Again'} alertType={'danger'} />
-      )}
       <div>Login</div>
       <form onSubmit={onSubmit}>
         <label htmlFor='email'>Email</label>

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import Alert from '../ErrorMessage/Alert';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // utils
 import api from '../../utils/api';
+import { toast } from 'react-toastify';
 
 function Signup({ setUserToken }) {
-
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -14,8 +13,7 @@ function Signup({ setUserToken }) {
     password: '',
     password2: '',
   });
-  const [error, setError] = useState(false);
-  const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
 
   const { first_name, last_name, email, password, password2 } = formData;
 
@@ -34,29 +32,22 @@ function Signup({ setUserToken }) {
       email,
     };
 
-    if (password === password2) {
-      setError(true);
+    if (password !== password2) {
+      toast.error(`Passwords don't match`);
     }
     try {
       const { data } = await api.post('/register', user);
       localStorage.setItem('token', data.token);
       localStorage.setItem('userProfile', JSON.stringify(data.userProfile));
       setUserToken(data.token);
-      setRedirect(true);
+      navigate('/quiz');
     } catch (error) {
-      setError(true);
+      toast.error(error);
     }
   };
 
-  // Redirect after login to quiz page
-  if (redirect) {
-    return <Navigate to='/quiz' />;
-  }
   return (
     <>
-      {error && (
-        <Alert msg={'Please try registering again'} alertType={'danger'} />
-      )}
       <div>Signup</div>
       <form onSubmit={onSubmit}>
         <label htmlFor='firstName'> First Name</label>
