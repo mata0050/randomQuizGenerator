@@ -17,9 +17,10 @@ const Questions = ({ currentQuiz, score, setScore }) => {
 
   // go to the nextQuestion
   const nextQuestion = () => {
+    const total_questions = currentQuiz.length;
     if (currentQuiz.length === arrlength) {
       // after last quiz add score to DB
-      addScore(currentQuiz, score);
+      addScore(currentQuiz, score, total_questions);
       navigate('/score');
     }
 
@@ -45,7 +46,6 @@ const Questions = ({ currentQuiz, score, setScore }) => {
       );
     }
   };
-
 
   return (
     <div className='questions'>
