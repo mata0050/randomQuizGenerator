@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import Alert from "../ErrorMessage/Alert";
 import { Navigate } from "react-router-dom";
@@ -5,6 +6,14 @@ import "./Signup.css";
 
 // utils
 import api from "../../utils/api";
+=======
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+// api call
+import signUpUser from '../../api/signUpUser';
+>>>>>>> d445ebef94cfb0d997fc4b007b4c3395fc5244b7
 
 function Signup({ setUserToken }) {
   const [formData, setFormData] = useState({
@@ -14,8 +23,7 @@ function Signup({ setUserToken }) {
     password: "",
     password2: "",
   });
-  const [error, setError] = useState(false);
-  const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
 
   const { first_name, last_name, email, password, password2 } = formData;
 
@@ -24,8 +32,8 @@ function Signup({ setUserToken }) {
     setFormData({ ...formData, [name]: value });
   };
 
-  // Login a User
-  const onSubmit = async (e) => {
+  // Register a User
+  const onSubmit = (e) => {
     e.preventDefault();
     const user = {
       first_name,
@@ -34,6 +42,7 @@ function Signup({ setUserToken }) {
       email,
     };
 
+<<<<<<< HEAD
     if (password === password2) {
       setError(true);
     }
@@ -45,14 +54,26 @@ function Signup({ setUserToken }) {
       setRedirect(true);
     } catch (error) {
       setError(true);
+=======
+    if (password !== password2) {
+      return toast.error(`Passwords don't match`);
+>>>>>>> d445ebef94cfb0d997fc4b007b4c3395fc5244b7
     }
+    signUpUser(setUserToken, user);
   };
 
+<<<<<<< HEAD
   // Redirect after login to quiz page
   if (redirect) {
     return <Navigate to="/quiz" />;
+=======
+  if (localStorage.getItem('token')) {
+    navigate('/quiz');
+>>>>>>> d445ebef94cfb0d997fc4b007b4c3395fc5244b7
   }
+
   return (
+<<<<<<< HEAD
     <div className="card">
       {error && (
         <Alert msg={"Please try registering again"} alertType={"danger"} />
@@ -120,6 +141,55 @@ function Signup({ setUserToken }) {
         </form>
       </div>
     </div>
+=======
+    <>
+      <div>Signup</div>
+      <form onSubmit={onSubmit}>
+        <label htmlFor='firstName'> First Name</label>
+        <input
+          type='text'
+          name='first_name'
+          id='firstName'
+          value={first_name}
+          onChange={onChange}
+        />
+        <label htmlFor='lastName'> Last Name</label>
+        <input
+          type='text'
+          name='last_name'
+          id='lastName'
+          value={last_name}
+          onChange={onChange}
+        />
+        <label htmlFor='email'> Email</label>
+        <input
+          type='email'
+          name='email'
+          id='Email'
+          value={email}
+          onChange={onChange}
+        />
+        <label htmlFor='password1'> Password</label>
+        <input
+          type='password'
+          name='password'
+          id='password'
+          value={password}
+          onChange={onChange}
+        />
+        <label htmlFor='password2'>Confirm Password</label>
+        <input
+          type='password'
+          name='password2'
+          id='password2'
+          value={password2}
+          onChange={onChange}
+        />
+
+        <button type='submit'>Login</button>
+      </form>
+    </>
+>>>>>>> d445ebef94cfb0d997fc4b007b4c3395fc5244b7
   );
 }
 

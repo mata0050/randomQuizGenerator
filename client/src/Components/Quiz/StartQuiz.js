@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+
 import './Quiz.css';
 
-// utils
-import api from '../../utils/api';
+// api call
+import getQuiz from '../../api/getQuiz';
 
 function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
   const [formData, setFormData] = useState({
@@ -12,7 +12,7 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
   });
 
   const { limit, language } = formData;
-  const [redirect, setRedirect] = useState(false);
+  
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -21,13 +21,7 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await api(`/api/questions/${language}/${limit}`);
-      setCurrentQuiz(data);
-      setHideStartQuiz(!hideStartQuiz);
-    } catch (error) {
-      console.error(error);
-    }
+    getQuiz(language, limit, setCurrentQuiz, setHideStartQuiz, hideStartQuiz);
   };
 
   return (

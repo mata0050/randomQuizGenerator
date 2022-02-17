@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+
+// CSS
 import './Quiz.css';
 
-// utils
-import api from '../../utils/api';
+// Components
 import Questions from './Questions';
 import StartQuiz from './StartQuiz';
 
 function Quiz({ currentQuiz, setCurrentQuiz, score, setScore }) {
   const [hideStartQuiz, setHideStartQuiz] = useState(true);
+
+  // sets score to ZERO when StartQuiz Components is shown
+  useEffect(() => {
+    if (hideStartQuiz) {
+      setScore(0);
+    }
+  }, [hideStartQuiz, setScore, score]);
 
   return (
     <section>
