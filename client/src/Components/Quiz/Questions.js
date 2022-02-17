@@ -1,39 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
-
-// utils
-import api from '../../utils/api';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // CSS
 import './Quiz.css';
 import './Questions.css';
 
-// Component
-import Alert from '../ErrorMessage/Alert';
+import addScore from '../../api/addScore';
 
 const Questions = ({ currentQuiz, score, setScore }) => {
   const [currentQuestion, setCurrentQuestion] = useState([currentQuiz[0]]);
   const [arrlength, setArrLength] = useState(1);
-  const [error, setError] = useState(false);
-  const [correct, setCorrect] = useState(false);
-  const [explanation, setExplanation] = useState('');
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [redirect, setRedirect] = useState(false);
-
-  useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        setError(false);
-        setCorrect(false);
-      }, [2000]);
-    }
-  }, [error]);
+  const navigate = useNavigate();
 
   // go to the nextQuestion
   const nextQuestion = () => {
     if (currentQuiz.length === arrlength) {
-      addScore();
-      setRedirect(true);
+      addScore(currentQuiz, score);
+      navigate('/score');
     }
 
     if (questionNumber !== currentQuiz.length) {
@@ -42,44 +27,27 @@ const Questions = ({ currentQuiz, score, setScore }) => {
 
     setArrLength((prev) => prev + 1);
     setCurrentQuestion([currentQuiz[arrlength]]);
-    setCorrect(false);
-    setError(false);
   };
 
   // check if answer is correct
   const answer = (data) => {
     if (data.selectedAnswers === data.correct_answer) {
       setScore((prev) => prev + 1);
-      setCorrect(true);
+      toast(`Your answer ${data.answer} is correct`);
     } else {
-      setExplanation(data.explanation);
-      setError(true);
+      toast.error(
+        `Incorrect Answer, this was the correct answer: 
+          ${data.correct_answer} 
+      Explanation
+         ${data.explanation}`
+      );
     }
   };
 
-  console.log(localStorage.getItem('userProfile'));
-
-  // add Score
-  const addScore = async () => {
-    try {
-      const { data } = await api.post('/api/score', {
-        name: currentQuiz[0].language,
-        user_id: localStorage.getItem('userProfile').id,
-        score: score,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  if (redirect) {
-    return <Navigate to='/score' />;
-  }
+  console.log(JSON.parse(localStorage.getItem('userProfile')));
 
   return (
     <div className='questions'>
-      {error && <Alert msg={explanation} alertType={'danger'} />}
-      {correct && <Alert msg={explanation} alertType={'success'} />}
       <header>
         <h3>
           Question Number: <span>{questionNumber}</span>{' '}
@@ -101,6 +69,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
               onClick={() =>
                 answer({
                   selectedAnswers: 'answer_a',
+                  answer: question.answer_a,
                   correct_answer: question.correct_answer,
                   explanation: question.explanation,
                 })
@@ -112,6 +81,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
               onClick={() =>
                 answer({
                   selectedAnswers: 'answer_b',
+                  answer: question.answer_b,
                   correct_answer: question.correct_answer,
                   explanation: question.explanation,
                 })
@@ -123,6 +93,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
               onClick={() =>
                 answer({
                   selectedAnswers: 'answer_c',
+                  answer: question.answer_c,
                   correct_answer: question.correct_answer,
                   explanation: question.explanation,
                 })
@@ -134,6 +105,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
               onClick={() =>
                 answer({
                   selectedAnswers: 'answer_d',
+                  answer: question.answer_d,
                   correct_answer: question.correct_answer,
                   explanation: question.explanation,
                 })
