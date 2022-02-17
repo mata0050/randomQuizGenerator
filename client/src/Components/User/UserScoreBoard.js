@@ -4,7 +4,7 @@ import './User.css';
 const UserScoreBoard = ({ results }) => {
   return (
     <div className='table '>
-      <h2>Quiz Results</h2>
+      <h2>My Quiz Results</h2>
       <table className='box-shadow'>
         <tr>
           <th>Name</th>

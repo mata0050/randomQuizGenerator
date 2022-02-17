@@ -9,7 +9,7 @@ import './Questions.css';
 // api call
 import addScore from '../../api/addScore';
 
-const Questions = ({ currentQuiz, score, setScore }) => {
+const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
   const [currentQuestion, setCurrentQuestion] = useState([currentQuiz[0]]);
   const [arrlength, setArrLength] = useState(1);
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -130,7 +130,11 @@ const Questions = ({ currentQuiz, score, setScore }) => {
       ))}
 
       <footer>
-        <button type='submit' className='btn btn-primary question-btn'>
+        <button
+          type='submit'
+          className='btn btn-primary question-btn'
+          onClick={() => setHideStartQuiz(true)}
+        >
           Quit
         </button>
         <button

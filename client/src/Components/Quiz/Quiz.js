@@ -30,6 +30,7 @@ function Quiz({ currentQuiz, setCurrentQuiz, score, setScore }) {
           score={score}
           setScore={setScore}
           currentQuiz={currentQuiz}
+          setHideStartQuiz={setHideStartQuiz}
         />
       )}
     </section>
