@@ -18,7 +18,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @access   Private
 const getAllUserQuizResults = asyncHandler(async (req, res) => {
   const { rows } = await pool.query(
-    'SELECT user_id ,SUM(total_questions) as total_questions, AVG(score) as average_score FROM quiz JOIN users ON user_id = users.id GROUP BY user_id'
+    'SELECT user_id ,SUM(total_questions) as total_questions, AVG(score) as average_score FROM quiz JOIN users ON user_id = users.id GROUP BY user_id ORDER BY average_score DESC'
   );
   res.json(rows);
 });

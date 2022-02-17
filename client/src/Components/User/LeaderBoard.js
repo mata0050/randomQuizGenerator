@@ -4,11 +4,16 @@ import React from 'react';
 import './User.css';
 import './LeaderBoard.css';
 
-const LeaderBoarder = ({ allResults, allUsers }) => {
+const LeaderBoard = ({ allResults, allUsers }) => {
   return (
-    <div className='table'>
+    <div className='table leader-board'>
       <h2>LeaderBoard</h2>
-      <table>
+      <table className='leader-table box-shadow'>
+        <tr>
+          <th></th>
+          <th className='text-center'>Total Questions Answered</th>
+          <th>Points</th>
+        </tr>
         {allResults.map((result) => (
           <tr>
             <td>
@@ -16,14 +21,15 @@ const LeaderBoarder = ({ allResults, allUsers }) => {
                 .filter((user) => user.id === result.user_id)
                 .map((user) => (
                   <div className='user'>
+                    {console.log(user)}
                     <img src={user.avatar} alt='' />
-                    <span className='bold'>{`${user.first_name} ${user.first_last}`}</span>
+                    <span className='bold'>{`${user.first_name} ${user.last_name}`}</span>
                   </div>
                 ))}
             </td>
-            <td className='bold'> {result.total_questions}</td>
+            <td className='bold text-center'> {result.total_questions}</td>
             <td className='bold'>
-              <i className='fa-solid fa-star' style={{color:'gold'}} />
+              <i className='fa-solid fa-star' style={{ color: 'gold' }} />
               {Math.round(result.average_score)}
             </td>
           </tr>
@@ -33,4 +39,4 @@ const LeaderBoarder = ({ allResults, allUsers }) => {
   );
 };
 
-export default LeaderBoarder;
+export default LeaderBoard;

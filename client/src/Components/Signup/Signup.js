@@ -61,6 +61,7 @@ function Signup({ setUserToken }) {
               id='firstName'
               value={first_name}
               onChange={onChange}
+              required
             />
           </div>
           <div className='form-group'>
@@ -72,6 +73,7 @@ function Signup({ setUserToken }) {
               id='lastName'
               value={last_name}
               onChange={onChange}
+              required
             />
           </div>
           <div className='form-group'>
@@ -83,6 +85,7 @@ function Signup({ setUserToken }) {
               id='Email'
               value={email}
               onChange={onChange}
+              required
             />
           </div>
           <div className='form-group'>
@@ -94,6 +97,7 @@ function Signup({ setUserToken }) {
               id='password'
               value={password}
               onChange={onChange}
+              required
             />
           </div>
           <div className='form-group'>

@@ -12,7 +12,7 @@ import getAllUsers from '../../api/getAllUsers';
 
 // Components
 import UserScoreBoard from './UserScoreBoard';
-import LeaderBoarder from './LeaderBoard';
+import LeaderBoard from './LeaderBoard';
 
 const User = () => {
   const [results, setResults] = useState([]);
@@ -28,7 +28,7 @@ const User = () => {
   return (
     <>
       <UserScoreBoard results={results} />
-      <LeaderBoarder allResults={allResults} allUsers={allUsers} />
+      <LeaderBoard allResults={allResults} allUsers={allUsers} />
     </>
   );
 };
