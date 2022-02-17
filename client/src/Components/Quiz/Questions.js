@@ -13,6 +13,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
   const [currentQuestion, setCurrentQuestion] = useState([currentQuiz[0]]);
   const [arrlength, setArrLength] = useState(1);
   const [questionNumber, setQuestionNumber] = useState(1);
+  const [answeredQuestion, setAnswersQuestion] = useState([]);
   const navigate = useNavigate();
 
   // go to the nextQuestion
@@ -34,6 +35,12 @@ const Questions = ({ currentQuiz, score, setScore }) => {
 
   // check if answer is correct
   const answer = (data) => {
+    // check if question has been answered
+    if (answeredQuestion.includes(data.question)) {
+      return toast.error('Your already answered this questions');
+    }
+    answeredQuestion.push(data.question);
+
     if (data.selectedAnswers === data.correct_answer) {
       setScore((prev) => prev + 1);
       toast(`Your answer ${data.answer} is correct`);
@@ -46,6 +53,8 @@ const Questions = ({ currentQuiz, score, setScore }) => {
       );
     }
   };
+
+  console.log(answeredQuestion);
 
   return (
     <div className='questions'>
@@ -69,6 +78,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
             <p
               onClick={() =>
                 answer({
+                  question: question.question,
                   selectedAnswers: 'answer_a',
                   answer: question.answer_a,
                   correct_answer: question.correct_answer,
@@ -81,6 +91,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
             <p
               onClick={() =>
                 answer({
+                  question: question.question,
                   selectedAnswers: 'answer_b',
                   answer: question.answer_b,
                   correct_answer: question.correct_answer,
@@ -93,6 +104,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
             <p
               onClick={() =>
                 answer({
+                  question: question.question,
                   selectedAnswers: 'answer_c',
                   answer: question.answer_c,
                   correct_answer: question.correct_answer,
@@ -105,6 +117,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
             <p
               onClick={() =>
                 answer({
+                  question: question.question,
                   selectedAnswers: 'answer_d',
                   answer: question.answer_d,
                   correct_answer: question.correct_answer,
