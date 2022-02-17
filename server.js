@@ -12,6 +12,7 @@ app.use('/register', require('./routes/auth/register'));
 app.use('/api/questions', require('./routes/api/questions'));
 app.use('/api/quiz', require('./routes/api/quiz'));
 
+
 // Error Middleware
 app.use(errorHandler);
 

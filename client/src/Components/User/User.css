@@ -1,32 +1,19 @@
-h2 {
-  letter-spacing: 0.1rem;
-  text-transform: capitalize;
-  line-height: 1.25;
-  margin-bottom: 0.75;
-}
-.section {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-}
-.quiz {
-  width: 90vw;
-  max-width: 1170px;
-  margin: 4rem auto;
-  border-radius: .25;
-  padding: 3rem;
-  margin-top: 10px;
- 
-}
-.quiz-small {
-  max-width: 500px;
+.table{
+  padding: 80px;
 }
 
-.start-btn {
-  padding: 0.25rem 0.5rem;
-  display: block;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
   width: 100%;
-  margin-left: auto;
-  margin-top: 2rem;
-  margin-right: auto;
 }
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+/* tr:nth-child(even) {
+  background-color: #dddddd;
+} */
