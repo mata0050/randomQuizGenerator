@@ -10,10 +10,10 @@ import StartQuiz from './StartQuiz';
 function Quiz({ currentQuiz, setCurrentQuiz, score, setScore }) {
   const [hideStartQuiz, setHideStartQuiz] = useState(true);
 
+  // sets score to ZERO when StartQuiz Components is shown
   useEffect(() => {
     if (hideStartQuiz) {
       setScore(0);
-      console.log(score);
     }
   }, [hideStartQuiz, setScore, score]);
 
