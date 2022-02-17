@@ -54,7 +54,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
     }
   };
 
-  console.log(answeredQuestion);
+
 
   return (
     <div className='questions'>
