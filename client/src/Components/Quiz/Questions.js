@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import './Quiz.css';
 import './Questions.css';
 
+// api call
 import addScore from '../../api/addScore';
 
 const Questions = ({ currentQuiz, score, setScore }) => {
@@ -44,7 +45,6 @@ const Questions = ({ currentQuiz, score, setScore }) => {
     }
   };
 
-  console.log(JSON.parse(localStorage.getItem('userProfile')));
 
   return (
     <div className='questions'>
