@@ -39,7 +39,7 @@ const Questions = ({ currentQuiz, score, setScore }) => {
     if (answeredQuestion.includes(data.question)) {
       return toast.error('Your already answered this questions');
     }
-    answeredQuestion.push(data.question);
+    setAnswersQuestion((prev) => [...prev, data.question]);
 
     if (data.selectedAnswers === data.correct_answer) {
       setScore((prev) => prev + 1);
@@ -53,8 +53,6 @@ const Questions = ({ currentQuiz, score, setScore }) => {
       );
     }
   };
-
-
 
   return (
     <div className='questions'>
