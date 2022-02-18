@@ -19,6 +19,7 @@ import Header from './Components/Header/Header';
 import Login from './Components/Login/Login';
 import Signup from './Components/Signup/Signup';
 import User from './Components/User';
+import Users from './Components/Leaderboard';
 
 function App() {
   const [userToken, setUserToken] = useState(null);
@@ -86,8 +87,8 @@ function App() {
           path='signup'
           element={<Signup setUserToken={setUserToken} />}
         ></Route>
-
-        <Route path='user' element={<User />}></Route>
+        <Route path='results' element={<User />}></Route>
+        <Route path='leaderboard' element={<Users />}></Route>
       </Routes>
     </BrowserRouter>
   );

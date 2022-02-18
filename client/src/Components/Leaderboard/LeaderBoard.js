@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Import CSS
-import './User.css';
 import './LeaderBoard.css';
 
 const LeaderBoard = ({ allResults, allUsers }) => {
