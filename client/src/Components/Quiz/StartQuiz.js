@@ -59,22 +59,14 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
             <option value=''></option>
             <option value='Python'>Python</option>
             <option value='Java'>Java</option>
-            <option value='C++'>c++</option>
-          </select>
-        </div>
-        <div className='mb-3'>
-          <label className='form-label' for='difficulty'>
-            Difficulty
-          </label>
-          <select
-            className='form-select'
-            name='difficulty'
-            id='difficulty'
-            style={{ width: '400px' }}
-          >
-            <option value='basic'>Basic</option>
-            <option value='intermediate'>Intermediate</option>
-            <option value='advance'>Advance</option>
+            <option value='C++'>C++</option>
+            <option value='Linux'>Linux</option>
+            <option value='Bash'>Bash</option>
+            <option value='Docker'>Docker</option>
+            <option value='SQL'>SQL</option>
+            <option value='CMS'>CMS</option>
+            <option value='Code'>Code</option>
+            <option value='DevOps'>DevOps</option>
           </select>
         </div>
         <button type='submit' className='btn btn-primary start-btn'>
