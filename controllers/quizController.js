@@ -30,9 +30,10 @@ const getUserQuizResults = asyncHandler(async (req, res) => {
   const { user_id } = req.params;
 
   // add quiz
-  const { rows } = await pool.query('SELECT * FROM quiz WHERE user_id = $1', [
-    user_id,
-  ]);
+  const { rows } = await pool.query(
+    'SELECT * FROM quiz WHERE user_id = $1 ORDER BY id DESC',
+    [user_id]
+  );
 
   res.json(rows);
 });

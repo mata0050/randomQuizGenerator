@@ -21,6 +21,7 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
     const total_questions = currentQuiz.length;
     if (currentQuiz.length === arrlength) {
       // after last quiz add score to DB
+      console.log(currentQuiz)
       addScore(currentQuiz, score, total_questions);
       navigate('/score');
     }
