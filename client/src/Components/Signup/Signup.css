@@ -1,6 +1,36 @@
-.card {
-  margin-top: 2%;
+body {
+  background-color: #eee;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to top, #fff 10%, rgba(37, 137, 177, 0.4) 90%) no-repeat
 }
+
+/* .card {
+  width: 35%;
+  margin: auto;
+ margin-top: 25%;
+  background: linear-gradient(to top, #fff 10%, rgba(93, 42, 141, 0.4) 90%) no-repeat
+  
+} */
+.wrapper {
+  max-width: 500px;
+  border-radius: 10px;
+  margin: 100px auto;
+  padding: 30px 40px;
+  box-shadow: 20px 20px 80px rgb(206, 206, 206)
+}
+
+
  h3 {
    text-align: center;
  }
+ .password, .email, .name, .signup{
+  border-radius: 20px;
+}
+.name, .email {
+  margin-bottom: 20px;
+}
+.signup {
+  color: #fff;
+  background-color: rgb(17, 57, 80);
+}

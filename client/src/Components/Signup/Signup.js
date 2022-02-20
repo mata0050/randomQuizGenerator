@@ -45,17 +45,18 @@ function Signup({ setUserToken }) {
   }
 
   return (
-    <div className='card'>
-      <div className='card-header'>
+    <div className='wrapper bg-white'>
+      <div className=''>
         {' '}
         <h3>Signup</h3>{' '}
       </div>
       <div className='card-body'>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
-            <label htmlFor='firstName'> First Name</label>
+            {/* <label htmlFor='firstName'> First Name</label> */}
             <input
-              className='form-control'
+              className='form-control name'
+              placeholder='First Name'
               type='text'
               name='first_name'
               id='firstName'
@@ -65,9 +66,10 @@ function Signup({ setUserToken }) {
             />
           </div>
           <div className='form-group'>
-            <label htmlFor='lastName'> Last Name</label>
+            {/* <label htmlFor='lastName'> Last Name</label> */}
             <input
-              className='form-control'
+              className='form-control name'
+              placeholder='Last Name'
               type='text'
               name='last_name'
               id='lastName'
@@ -77,9 +79,10 @@ function Signup({ setUserToken }) {
             />
           </div>
           <div className='form-group'>
-            <label htmlFor='email'> Email</label>
+            {/* <label htmlFor='email'> Email</label> */}
             <input
-              className='form-control'
+              className='form-control email'
+              placeholder='Email Address'
               type='email'
               name='email'
               id='Email'
@@ -89,9 +92,10 @@ function Signup({ setUserToken }) {
             />
           </div>
           <div className='form-group'>
-            <label htmlFor='password1'> Password</label>
+            {/* <label htmlFor='password1'> Password</label> */}
             <input
-              className='form-control'
+              className='form-control password'
+              placeholder='Password'
               type='password'
               name='password'
               id='password'
@@ -101,9 +105,10 @@ function Signup({ setUserToken }) {
             />
           </div>
           <div className='form-group'>
-            <label htmlFor='password2'>Confirm Password</label>
+            {/* <label htmlFor='password2'>Confirm Password</label> */}
             <input
-              className='form-control'
+              className='form-control password'
+              placeholder='Confirm Password'
               type='password'
               name='password2'
               id='password2'
@@ -112,8 +117,8 @@ function Signup({ setUserToken }) {
             />
           </div>
           <div className='form-group'>
-            <button type='submit' className='btn btn-primary start-btn'>
-              Login
+            <button type='submit' className='btn btn-primary start-btn signup'>
+              Signup
             </button>
           </div>
         </form>

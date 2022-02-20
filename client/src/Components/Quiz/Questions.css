@@ -12,9 +12,10 @@ header{
 }
 
 .question{
-  background-color: #E5E5E5;
+  /* background-color: #E5E5E5; */
+  background-color: white;
   padding: 40px;
-  border-radius: 5px;
+  border-radius: 15px;
 
 }
 
@@ -31,14 +32,17 @@ header{
 }
 
 .answers p{
-  background-color: #E5E5E5;
+  background-color: white;
   font-size:1.5rem;
   padding: 10px;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 .answers p:hover{
-  background-color: #ccc;
+  /* background-color: #ccc; */
+  background: rgb(17, 48, 66);
+  color: #fff;
 }
 
 
@@ -51,4 +55,6 @@ footer{
 .question-btn{
   padding: 10px 35px;
   font-size: 1rem;
+  /* background-color: rgb(17, 56, 78); */
+  background-color: rgb(14, 70, 102)
 }

@@ -13,9 +13,10 @@ h2 {
   width: 90vw;
   max-width: 1170px;
   margin: 4rem auto;
-  border-radius: .25;
+  /* border-radius: .25; */
   padding: 3rem;
   margin-top: 10px;
+ 
  
 }
 .quiz-small {
@@ -29,4 +30,6 @@ h2 {
   margin-left: auto;
   margin-top: 2rem;
   margin-right: auto;
+  color: #fff;
+  background-color: rgb(17, 57, 80);;
 }

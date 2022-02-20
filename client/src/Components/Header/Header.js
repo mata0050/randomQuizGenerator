@@ -18,11 +18,12 @@ function Header({ userToken, setUserToken }) {
 
         {userToken !== null ? (
           <>
-            <NavLink to='user'>
-              <span>Results</span>
-            </NavLink>
+            
             <NavLink to='quiz'>
               <span>Quiz</span>
+            </NavLink>
+            <NavLink to='user'>
+              <span>Results</span>
             </NavLink>
        
             <NavLink to='' onClick={logout}>

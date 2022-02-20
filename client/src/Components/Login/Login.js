@@ -31,16 +31,17 @@ function Login({ setUserToken }) {
     navigate('/quiz');
   }
   return (
-    <div className='card'>
-      <div className='card-header'>
+    <div className='wrapper bg-white'>
+      <div className=''>
         <h3>Login</h3>
       </div>
-      <div className='card-body'>
+      <div className=''>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
-            <label htmlFor='email'>Email</label>
+            {/* <label htmlFor='email'>Email</label>  */}
             <input
-              className='form-control'
+              className='form-control email'
+              placeholder='Email Address'
               type='text'
               value={email}
               id='email'
@@ -49,9 +50,10 @@ function Login({ setUserToken }) {
             />
           </div>
           <div className='form-group'>
-            <label htmlFor='password'>Password</label>
+            {/* <label htmlFor='password'>Password</label> */}
             <input
-              className='form-control'
+              className='form-control password'
+              placeholder='Password'
               type='password'
               value={password}
               id='password'
@@ -60,7 +62,7 @@ function Login({ setUserToken }) {
             />
           </div>
           <div className='form-group'>
-            <button type='submit' className='btn btn-primary start-btn'>
+            <button type='submit' className='btn  start-btn login'>
               Login
             </button>
           </div>
