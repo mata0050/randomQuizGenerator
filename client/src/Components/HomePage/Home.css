@@ -1,7 +1,7 @@
 
 .home {
   align-items: center;
-  margin-top: 0px;
+  margin-top: 50px;
 }
 
 .item1 {
@@ -20,6 +20,7 @@
 }
 
 .grid{
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
