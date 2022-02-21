@@ -10,7 +10,7 @@ import './Questions.css';
 import addScore from '../../api/addScore';
 
 const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
-  const [currentQuestion, setCurrentQuestion] = useState([currentQuiz[0]]);
+  const [currentQuestion, setCurrentQuestion] = useState(currentQuiz[0]);
   const [arrlength, setArrLength] = useState(1);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [answeredQuestion, setAnswersQuestion] = useState([]);
@@ -18,6 +18,8 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
   const [explanation, setExplanation] = useState('');
   const [allSelected, setAllSelected] = useState(false);
   const navigate = useNavigate();
+
+
 
   // go to the nextQuestion
   const nextQuestion = () => {
@@ -37,7 +39,7 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
     }
 
     setArrLength((prev) => prev + 1);
-    setCurrentQuestion([currentQuiz[arrlength]]);
+    setCurrentQuestion(currentQuiz[arrlength]);
   };
 
   // check if answer is correct
@@ -49,6 +51,8 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
     setAnswersQuestion((prev) => [...prev, data.question]);
     setCorrectAnswer(data.correct_answer);
     setAllSelected(true);
+    setCurrentQuestion({...currentQuestion, answered: true})
+    console.log(currentQuestion)
 
     if (data.selectedAnswers === data.correct_answer) {
       setScore((prev) => prev + 1);
@@ -64,20 +68,19 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
   };
 
   console.log(correctAnswer);
+  console.log(answeredQuestion);
 
   const styleCorrect = {
     background: 'green',
+    color: 'white',
   };
 
   const styleDefault = {
     // background: 'white',
   };
-
-  const styleWrong = {
+  const styleRed = {
     background: 'red',
   };
-
- 
 
   return (
     <div className='questions'>
@@ -93,108 +96,91 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
 
       {explanation && <p className='explanation'>{explanation}</p>}
 
-      {currentQuestion.map((question) => (
+      {(Object.keys(currentQuestion).length !== 0) &&
         <section>
           <div className='question'>
-            <p>{question.question}</p>
+            <p>{currentQuestion.question}</p>
           </div>
 
           <div className='answers'>
-            {question.answer_a && (
+            {currentQuestion.answer_a && (
               <p
                 style={
-                  correctAnswer === 'answer_a'
-                    ? styleCorrect
-                    : styleDefault ||
-                      (allSelected && correctAnswer !== 'answer_a')
-                    ? styleWrong
-                    : styleDefault
+                  correctAnswer === 'answer_a' ? styleCorrect : currentQuestion.answered ? styleRed : styleDefault
                 }
                 onClick={() =>
                   answer({
-                    question: question.question,
+                    question: currentQuestion.question,
                     selectedAnswers: 'answer_a',
-                    answer: question.answer_a,
-                    correct_answer: question.correct_answer,
-                    explanation: question.explanation,
+                    answer: currentQuestion.answer_a,
+                    correct_answer: currentQuestion.correct_answer,
+                    explanation: currentQuestion.explanation,
                   })
                 }
               >
-                {console.log(correctAnswer)}
-                {console.log(question.answer_a)}
-                {console.log(correctAnswer === 'answer_a')}
-                {question.answer_a}
+                {currentQuestion.answer_a}
               </p>
             )}
 
-            {question.answer_b && (
+            {currentQuestion.answer_b && (
               <p
                 style={
-                  correctAnswer === 'answer_b' ? styleCorrect : styleDefault||
-                  (allSelected && correctAnswer !== 'answer_b')
-                ? styleWrong
-                : styleDefault
+                  correctAnswer === 'answer_b' ? styleCorrect : currentQuestion.answered ? styleRed : styleDefault
                 }
                 onClick={() =>
                   answer({
-                    question: question.question,
+                    question: currentQuestion.question,
                     selectedAnswers: 'answer_b',
-                    answer: question.answer_b,
-                    correct_answer: question.correct_answer,
-                    explanation: question.explanation,
+                    answer: currentQuestion.answer_b,
+                    correct_answer: currentQuestion.correct_answer,
+                    explanation: currentQuestion.explanation,
                   })
                 }
               >
-                {question.answer_b}
+                {currentQuestion.answer_b}
               </p>
             )}
 
-            {question.answer_c && (
+            {currentQuestion.answer_c && (
               <p
                 style={
-                  correctAnswer === 'answer_c' ? styleCorrect : styleDefault||
-                  (allSelected && correctAnswer !== 'answer_c')
-                ? styleWrong
-                : styleDefault
+                  correctAnswer === 'answer_c'  ? styleCorrect : currentQuestion.answered ? styleRed : styleDefault
                 }
                 onClick={() =>
                   answer({
-                    question: question.question,
+                    question: currentQuestion.question,
                     selectedAnswers: 'answer_c',
-                    answer: question.answer_c,
-                    correct_answer: question.correct_answer,
-                    explanation: question.explanation,
+                    answer: currentQuestion.answer_c,
+                    correct_answer: currentQuestion.correct_answer,
+                    explanation: currentQuestion.explanation,
                   })
                 }
               >
-                {question.answer_c}
+                {currentQuestion.answer_c}
               </p>
             )}
 
-            {question.answer_d && (
+            {currentQuestion.answer_d && (
               <p
                 style={
-                  correctAnswer === 'answer_d' ? styleCorrect : styleDefault||
-                  (allSelected || correctAnswer !== 'answer_d')
-                ? styleWrong
-                : styleDefault
+                  correctAnswer === 'answer_d'  ? styleCorrect : currentQuestion.answered ? styleRed : styleDefault
                 }
                 onClick={() =>
                   answer({
-                    question: question.question,
+                    question: currentQuestion.question,
                     selectedAnswers: 'answer_d',
-                    answer: question.answer_d,
-                    correct_answer: question.correct_answer,
-                    explanation: question.explanation,
+                    answer: currentQuestion.answer_d,
+                    correct_answer: currentQuestion.correct_answer,
+                    explanation: currentQuestion.explanation,
                   })
                 }
               >
-                {question.answer_d}
+                {currentQuestion.answer_d}
               </p>
             )}
           </div>
         </section>
-      ))}
+      }
 
       <footer>
         <button
@@ -209,7 +195,7 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
           className='btn btn-primary question-btn'
           onClick={nextQuestion}
         >
-          Next
+          Submit
         </button>
       </footer>
     </div>

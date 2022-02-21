@@ -1,6 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+// CSS
 import './Header.css';
+
+// Asset
+import logo from '../../images/logo.png';
 
 function Header({ userToken, setUserToken }) {
   // logout and remove token from localStorage
@@ -10,7 +15,7 @@ function Header({ userToken, setUserToken }) {
   };
   return (
     <div className='header'>
-      <h2>LOGO</h2>
+      <img src={logo} alt='Random Quiz' />
       <div className='menu'>
         <NavLink to='/'>
           <span>Home</span>
@@ -19,7 +24,7 @@ function Header({ userToken, setUserToken }) {
         {userToken !== null ? (
           <>
             <NavLink to='quiz'>
-              <span>Quiz</span>
+              <span>Start Quiz</span>
             </NavLink>
             <NavLink to='results'>
               <span>Results</span>

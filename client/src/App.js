@@ -56,40 +56,42 @@ function App() {
   console.log(currentQuiz);
   return (
     <BrowserRouter>
-      <div>
-        <Header userToken={userToken} setUserToken={setUserToken} />
-      </div>
 
-      <ToastContainer />
+        <div>
+          <Header userToken={userToken} setUserToken={setUserToken} />
+        </div>
 
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route
-          path='quiz'
-          element={
-            <Quiz
-              currentQuiz={currentQuiz}
-              setCurrentQuiz={setCurrentQuiz}
-              score={score}
-              setScore={setScore}
-            />
-          }
-        ></Route>
-        <Route
-          path='score'
-          element={<Score score={score} currentQuiz={currentQuiz} />}
-        ></Route>
-        <Route
-          path='login'
-          element={<Login setUserToken={setUserToken} />}
-        ></Route>
-        <Route
-          path='signup'
-          element={<Signup setUserToken={setUserToken} />}
-        ></Route>
-        <Route path='results' element={<User />}></Route>
-        <Route path='leaderboard' element={<Users />}></Route>
-      </Routes>
+        <ToastContainer />
+
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route
+            path='quiz'
+            element={
+              <Quiz
+                currentQuiz={currentQuiz}
+                setCurrentQuiz={setCurrentQuiz}
+                score={score}
+                setScore={setScore}
+              />
+            }
+          ></Route>
+          <Route
+            path='score'
+            element={<Score score={score} currentQuiz={currentQuiz} />}
+          ></Route>
+          <Route
+            path='login'
+            element={<Login setUserToken={setUserToken} />}
+          ></Route>
+          <Route
+            path='signup'
+            element={<Signup setUserToken={setUserToken} />}
+          ></Route>
+          <Route path='results' element={<User />}></Route>
+          <Route path='leaderboard' element={<Users />}></Route>
+        </Routes>
+
     </BrowserRouter>
   );
 }

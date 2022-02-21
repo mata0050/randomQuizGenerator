@@ -12,7 +12,6 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
   });
 
   const { limit, language } = formData;
-  
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -38,8 +37,7 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
             className='form-control'
             value={limit}
             min={1}
-            max={8}
-            style={{ width: '400px' }}
+            style={{ width: '100%' }}
             onChange={onChange}
           />
         </div>
@@ -52,7 +50,7 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
             name='language'
             id='language'
             value={language}
-            style={{ width: '400px' }}
+            style={{ width: '100%' }}
             onChange={onChange}
           >
             {' '}
