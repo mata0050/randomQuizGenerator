@@ -1,12 +1,6 @@
 
 .home {
-  /* height: 100vh; */
-  /* display: flex; */
-  /* justify-content: space-around; */
   align-items: center;
-  /* background-image: url("../../images/quizimg2.jpeg"); */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
   margin-top: 50px;
 }
 
@@ -24,3 +18,38 @@
   /* color:rgb(173, 121, 24); */
   /* margin-top: 40px; */
 }
+
+.grid{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.grid img{
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.grid .video{
+  position: relative;
+  cursor: pointer;
+
+}
+
+
+.grid .video span{
+  position: absolute;
+  bottom: 10px;
+  z-index: 2;
+  background: #020B11;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+
