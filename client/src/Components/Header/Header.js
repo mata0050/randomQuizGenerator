@@ -15,7 +15,7 @@ function Header({ userToken, setUserToken }) {
   };
   return (
     <div className='header'>
-      <img src={logo} alt='Random Quiz' />
+      <img  src={logo} alt='Random Quiz' />
       <div className='menu'>
         <NavLink to='/'>
           <span>Home</span>
@@ -33,7 +33,7 @@ function Header({ userToken, setUserToken }) {
               <span>Leaderboard</span>
             </NavLink>
 
-            <NavLink to='' onClick={logout}>
+            <NavLink to='!#' onClick={logout}>
               <span className='button'>Logout</span>
             </NavLink>
           </>
