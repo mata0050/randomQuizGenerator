@@ -1,13 +1,7 @@
 
 .home {
-  /* height: 100vh; */
-  /* display: flex; */
-  /* justify-content: space-around; */
   align-items: center;
-  /* background-image: url("../../images/quizimg2.jpeg"); */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 .item1 {
