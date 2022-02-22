@@ -64,7 +64,6 @@ function StartQuiz({ setCurrentQuiz, setHideStartQuiz, hideStartQuiz }) {
             <option value='SQL'>SQL</option>
             <option value='CMS'>CMS</option>
             <option value='Code'>Code</option>
-            <option value='DevOps'>DevOps</option>
           </select>
         </div>
         <button type='submit' className='btn btn-primary start-btn'>
