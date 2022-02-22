@@ -16,6 +16,7 @@ function Search({ setSearchVideos }) {
         <input
           type='text'
           value={search}
+          placeholder='Search Youtube Videos'
           onChange={(e) => setSearch(e.target.value)}
         />
         {/* <button type='submit'>search</button> */}
