@@ -1,11 +1,13 @@
+
 // CSS
 import './User.css';
 
 const UserScoreBoard = ({ results }) => {
+
   return (
     <div className='table '>
       <h2>My Quiz Results</h2>
-      <table className='box-shadow'>
+      <table className='box-shadow results'>
         <tr>
           <th>Name</th>
           <th>Score</th>

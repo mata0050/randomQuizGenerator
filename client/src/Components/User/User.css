@@ -1,5 +1,5 @@
 .table {
-  padding: 80px;
+  padding: 100px 80px;
   margin-top: 15px;
 }
 
@@ -7,9 +7,15 @@ table {
   width: 100%;
 }
 
-th, td {
+.results {
+  background-color: #fff;
+  padding: 1.2em;
+  display: inline-block;
 }
 
+.results tr td {
+  width: 200px;
+}
 
 table,
 tr,
@@ -19,7 +25,32 @@ td {
   border: none;
 }
 
-
 h2 {
   margin-bottom: 20px;
+}
+
+/* mobile */
+@media only screen and (max-width: 723px) {
+  .table {
+    padding: 100px 60px;
+  }
+  .results tr td {
+    width: 180px;
+  }
+}
+
+@media only screen and (max-width: 688px) {
+  .table {
+    padding: 100px 40px;
+  }
+}
+
+@media only screen and (max-width: 534px) {
+  .table {
+    padding: 100px 30px;
+  }
+  .results tr td:nth-child(3),
+  .results tr th:nth-child(3) {
+    display: none;
+  }
 }
