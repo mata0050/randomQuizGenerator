@@ -1,29 +1,31 @@
-.questions{
+.questions {
   margin-top: 30px;
   padding: 80px;
-
 }
 
-
-header{
+header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
 }
 
-.question{
+.answer-heading{
+  display:none;
+  margin: 20px 0;
+}
+
+.question {
   /* background-color: #E5E5E5; */
   background-color: white;
   padding: 40px;
   border-radius: 15px;
-
 }
 
-.question p{
+.question p {
   font-size: 2.3rem;
 }
 
-.answers{
+.answers {
   margin: 20px 0px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -31,53 +33,112 @@ header{
   border-radius: 5px;
 }
 
-.answers p{
+.answers p {
   background-color: white;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   padding: 10px;
   cursor: pointer;
   border-radius: 15px;
 }
 
-.answers p:hover{
+.answers p:hover {
   /* background-color: #ccc; */
   background: rgb(17, 48, 66);
   color: #fff;
 }
 
-.explanation{
+.explanation-h2{
+  margin-left: -20px;
+}
+
+.explanation {
   padding: 20px;
   background-color: white;
   border-radius: 10px;
   font-size: 1rem;
-
 }
 
-
-footer{
-  /* display: flex;
-  justify-content: space-evenly; */
+.footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
-.question-btn{
+.question-btn {
   padding: 10px 35px;
   font-size: 1rem;
-  /* background-color: rgb(17, 56, 78); */
   background-color: rgb(14, 70, 102);
-  /* margin-left: 330px; */
-  /* display: flex; */
-  
 }
 
-/* .submit {
-  
-  
-  margin-left: 110%;
+/* mobile display */
+@media only screen and (max-width: 764px) {
+  .answer-heading{
+    display:block;
+    margin-left: -20px;
+  }
+  .answers {
+    margin: 30px 0px;
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 0px;
+
+  }
+
 }
-.quit {
-  margin-left: 60%;
+
+
+@media only screen and (max-width: 617px) {
+  .question {
+    padding: 20px;
+  }
+  .questions {
+    padding: 40px;
+    margin-top:  90px;
+  }
+
+
+  .question p {
+    font-size: 1.3rem;
+  }
+
+  .answer-heading{
+   font-size: 1.2rem;
+   font-weight: 600;
+  }
+
+
+}
+
+
+@media only screen and (max-width: 450px) {
+  .questions {
+    margin-top: 60px;
+    padding: 30px;
+  }
+
+  .question {
+    padding: 20px;
+  }
+
+  .question p {
+    font-size: 1.3rem;
+  }
+
+  .answers {
+    margin: 30px 0px;
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 0px;
+
+  }
   
-} */
+
+  .answers p {
+    font-size: 1rem;
+  }
+
+  header h2 {
+    font-size: 1rem;
+  }
+}

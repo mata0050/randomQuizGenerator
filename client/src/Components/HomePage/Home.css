@@ -2,7 +2,9 @@
   align-items: center;
   margin-top: 50px;
 }
-
+.search-input {
+  margin-bottom: 40px;
+}
 .item1 {
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
@@ -38,7 +40,7 @@
 .grid .video span {
   position: absolute;
   bottom: 10px;
-  z-index: 2;
+  /* z-index: 2; */
   background: #020b11;
   display: block;
   width: 100%;
@@ -123,3 +125,88 @@
   border: none;
   padding-left: 25px;
 }
+
+/* mobile display */
+@media only screen and (max-width: 1104px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid img {
+    height: 300px;
+  }
+}
+
+
+@media only screen and (max-width: 973px) {
+  .grid {
+   margin-right: -30px;
+   margin-left: -30px;
+  }
+
+  
+}
+
+
+@media only screen and (max-width: 765px) {
+  .grid {
+   margin-right: -50px;
+   margin-left: -50px;
+  }
+  .grid img {
+    height: 250px;
+  }
+
+  .search-grid{
+    width: 90vw;
+
+  }
+
+  .search-grid, .item1, .item2, .search-input{
+    margin-right: -50px;
+    margin-left: -50px;
+  }
+  
+}
+
+
+@media only screen and (max-width: 631px) {
+  .item1 h1{
+    font-size:3rem;
+  }
+  .item2 {
+  margin-bottom: 20px;
+  }
+
+
+  .search-input input{
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  }
+  .grid img {
+    height: 300px;
+  }
+
+  
+}
+
+
+@media only screen and (max-width: 414px) {
+
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  
+  }
+  .grid img {
+    height: 250px;
+  }
+
+  
+}
+

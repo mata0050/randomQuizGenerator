@@ -29,18 +29,24 @@ function Home() {
           <h5>Improve your ability to answer interview questions</h5>
         </div>
         <Search setSearchVideos={setSearchVideos} />
-        
-       
-      <div className='search-grid'>
+
+        <div className=  {searchVideos.length !== 0 &&'search-grid'}>
           {searchVideos.length !== 0 &&
-    
             searchVideos.map((video) => (
-              <Link key={video.id.videoId} to={'player'} state={{ url: `https://www.youtube.com/watch?v=${video.id.videoId}` }}>
+              <Link
+                key={video.id.videoId}
+                to={'player'}
+                state={{
+                  url: `https://www.youtube.com/watch?v=${video.id.videoId}`,
+                }}
+              >
                 <div className='search-video'>
-                  <img src={video.snippet.thumbnails.high.url} alt={video.snippet.description} /> 
-                   <h3>{video.snippet.title}</h3> 
-                 <p>{video.snippet.description}</p>
-                 
+                  <img
+                    src={video.snippet.thumbnails.high.url}
+                    alt={video.snippet.description}
+                  />
+                  <h3>{video.snippet.title}</h3>
+                  <p>{video.snippet.description}</p>
                 </div>
               </Link>
             ))}

@@ -30,3 +30,12 @@ footer {
   background: #5a9fc4;
   color: black;
 }
+
+
+/* mobile display */
+@media only screen and (max-width: 764px) {
+  .score{
+    
+  }
+
+}

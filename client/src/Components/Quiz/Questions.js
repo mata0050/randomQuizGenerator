@@ -19,8 +19,6 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
   const [allSelected, setAllSelected] = useState(false);
   const navigate = useNavigate();
 
-
-
   // go to the nextQuestion
   const nextQuestion = () => {
     setCorrectAnswer(null);
@@ -51,8 +49,8 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
     setAnswersQuestion((prev) => [...prev, data.question]);
     setCorrectAnswer(data.correct_answer);
     setAllSelected(true);
-    setCurrentQuestion({...currentQuestion, answered: true})
-    console.log(currentQuestion)
+    setCurrentQuestion({ ...currentQuestion, answered: true });
+    console.log(currentQuestion);
 
     if (data.selectedAnswers === data.correct_answer) {
       setScore((prev) => prev + 1);
@@ -94,19 +92,33 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
         </h3>
       </header>
 
-      {explanation && <p className='explanation'>{explanation}</p>}
+      {explanation && (
+        <>
+          <p className='explanation'>
+            <h2 className='explanation-h2'>Explanation</h2>
 
-      {(Object.keys(currentQuestion).length !== 0) &&
+            {explanation}
+          </p>
+        </>
+      )}
+
+      {Object.keys(currentQuestion).length !== 0 && (
         <section>
           <div className='question'>
             <p>{currentQuestion.question}</p>
           </div>
 
+          <h2 className='answer-heading'>Answers:</h2>
+
           <div className='answers'>
             {currentQuestion.answer_a && (
               <p
                 style={
-                  correctAnswer === 'answer_a' ? styleCorrect : currentQuestion.answered ? styleRed : styleDefault
+                  correctAnswer === 'answer_a'
+                    ? styleCorrect
+                    : currentQuestion.answered
+                    ? styleRed
+                    : styleDefault
                 }
                 onClick={() =>
                   answer({
@@ -125,7 +137,11 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
             {currentQuestion.answer_b && (
               <p
                 style={
-                  correctAnswer === 'answer_b' ? styleCorrect : currentQuestion.answered ? styleRed : styleDefault
+                  correctAnswer === 'answer_b'
+                    ? styleCorrect
+                    : currentQuestion.answered
+                    ? styleRed
+                    : styleDefault
                 }
                 onClick={() =>
                   answer({
@@ -144,7 +160,11 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
             {currentQuestion.answer_c && (
               <p
                 style={
-                  correctAnswer === 'answer_c'  ? styleCorrect : currentQuestion.answered ? styleRed : styleDefault
+                  correctAnswer === 'answer_c'
+                    ? styleCorrect
+                    : currentQuestion.answered
+                    ? styleRed
+                    : styleDefault
                 }
                 onClick={() =>
                   answer({
@@ -163,7 +183,11 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
             {currentQuestion.answer_d && (
               <p
                 style={
-                  correctAnswer === 'answer_d'  ? styleCorrect : currentQuestion.answered ? styleRed : styleDefault
+                  correctAnswer === 'answer_d'
+                    ? styleCorrect
+                    : currentQuestion.answered
+                    ? styleRed
+                    : styleDefault
                 }
                 onClick={() =>
                   answer({
@@ -180,19 +204,19 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
             )}
           </div>
         </section>
-      }
+      )}
 
-      <footer>
+      <footer className='footer'>
         <button
           type='submit'
-          className='btn btn-primary question-btn quit'
+          className='btn btn-primary question-btn'
           onClick={() => setHideStartQuiz(true)}
         >
           Quit
         </button>
         <button
           type='submit'
-          className='btn btn-primary question-btn submit'
+          className='btn btn-primary question-btn '
           onClick={nextQuestion}
         >
           Submit
