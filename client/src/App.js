@@ -12,7 +12,6 @@ import api from './utils/api';
 
 // Components
 import Home from './Components/HomePage/Home';
-
 import Quiz from './Components/Quiz/Quiz';
 import Score from './Components/FinalScore/Score';
 import Header from './Components/Header/Header';
@@ -20,6 +19,7 @@ import Login from './Components/Login/Login';
 import Signup from './Components/Signup/Signup';
 import User from './Components/User';
 import Users from './Components/Leaderboard';
+import Player from './Components/ReactPlayer/Player';
 
 function App() {
   const [userToken, setUserToken] = useState(null);
@@ -90,6 +90,7 @@ function App() {
           ></Route>
           <Route path='results' element={<User />}></Route>
           <Route path='leaderboard' element={<Users />}></Route>
+          <Route path='player' element={<Player />}></Route>
         </Routes>
 
     </BrowserRouter>

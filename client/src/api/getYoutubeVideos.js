@@ -14,7 +14,8 @@ export const getYoutubeVideos = async (setYoutubeVideos) => {
 export const searchYoutubeVideos = async (query, setSearchVideos) => {
   try {
     const { data } = await api.get(`/api/youtube/${query}`);
-    setSearchVideos(data);
+
+    setSearchVideos(data.items);
   } catch (error) {
     console.log(error);
   }
