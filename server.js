@@ -11,7 +11,7 @@ app.use('/auth', require('./routes/auth/auth'));
 app.use('/register', require('./routes/auth/register'));
 app.use('/api/questions', require('./routes/api/questions'));
 app.use('/api/quiz', require('./routes/api/quiz'));
-
+app.use('/api/youtube', require('./routes/api/youtube'));
 
 // Error Middleware
 app.use(errorHandler);

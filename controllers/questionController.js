@@ -13,9 +13,6 @@ const pool = require('../config/db');
 const getQuestions = asyncHandler(async (req, res) => {
   const { language, limit } = req.params;
 
-  console.log(language);
-  console.log(typeof language);
-
   if (language === 'Python' || language === 'Java' || language === 'C++') {
     // Get all questions for this language
     const { rows } = await pool.query(
