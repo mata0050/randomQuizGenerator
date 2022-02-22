@@ -55,13 +55,29 @@ header{
 
 
 footer{
+  /* display: flex;
+  justify-content: space-evenly; */
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
 }
 
 .question-btn{
   padding: 10px 35px;
   font-size: 1rem;
   /* background-color: rgb(17, 56, 78); */
-  background-color: rgb(14, 70, 102)
+  background-color: rgb(14, 70, 102);
+  /* margin-left: 330px; */
+  /* display: flex; */
+  
 }
+
+/* .submit {
+  
+  
+  margin-left: 110%;
+}
+.quit {
+  margin-left: 60%;
+  
+} */

@@ -185,14 +185,14 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
       <footer>
         <button
           type='submit'
-          className='btn btn-primary question-btn'
+          className='btn btn-primary question-btn quit'
           onClick={() => setHideStartQuiz(true)}
         >
           Quit
         </button>
         <button
           type='submit'
-          className='btn btn-primary question-btn'
+          className='btn btn-primary question-btn submit'
           onClick={nextQuestion}
         >
           Submit
