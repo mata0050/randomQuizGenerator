@@ -9,6 +9,7 @@ function Search({ setSearchVideos }) {
   const onSubmit = (e) => {
     e.preventDefault();
     searchYoutubeVideos(search, setSearchVideos);
+    setSearch('')
   };
   return (
     <div>
