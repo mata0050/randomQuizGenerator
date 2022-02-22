@@ -77,7 +77,7 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
     // background: 'white',
   };
   const styleRed = {
-    background: 'red',
+    // background: 'red',
   };
 
   return (
