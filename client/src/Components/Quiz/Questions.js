@@ -84,7 +84,7 @@ const Questions = ({ currentQuiz, score, setScore, setHideStartQuiz }) => {
     <div className='questions'>
       <header>
         <h3>
-          Question Number: <span>{questionNumber}</span>{' '}
+          Question Number: <span>{questionNumber} of {currentQuiz.length}</span>{' '}
         </h3>
         <h3>
           Score:
