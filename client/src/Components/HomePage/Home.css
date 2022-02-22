@@ -179,6 +179,14 @@
   }
 
 
+
+  .quiz{
+padding: 0 50px !important;
+  }
+
+
+
+
   .search-input input{
     width: 100%;
   }
