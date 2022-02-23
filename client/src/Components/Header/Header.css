@@ -23,10 +23,11 @@
   /* margin-left: 55%; */
 }
 
-.header a {
+.header a, .header .NavLink {
   text-decoration: none;
   color: white;
 }
+
 .header span {
   padding: 20px;
   display: inline-block;
@@ -73,23 +74,23 @@ i {
     display: block;
     margin-right: 30px;
     margin-top: 10px;
-
+    cursor: pointer;
   }
 
   .header .menu .nav {
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: #fff;
+    background-color: rgb(17, 48, 66, 0.9);
     width: 300px;
     padding: 20px;
-    top: 80px;
+    top: 90px;
     right: 30px;
     border-radius: 8px;
   }
 
   .header .menu .nav a {
-    color: #F89321;
+    color: #fff;
     border-radius: 8px;
   }
 

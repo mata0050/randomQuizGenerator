@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 // CSS
 import './Header.css';
@@ -9,15 +9,20 @@ import logo from '../../images/logo.png';
 
 function Header({ userToken, setUserToken }) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   console.log(pathname);
   const [currentPathname, setCurrentPathname] = useState(pathname);
+  const [showNav, setShowNav] = useState(false);
+  const handleClick = () => setShowNav(!showNav);
+
+  
   // logout and remove token from localStorage
   const logout = () => {
     localStorage.removeItem('token');
     setUserToken(null);
+    setShowNav(false);
+    navigate('/');
   };
-  const [showNav, setShowNav] = useState(false);
-  const handleClick = () => setShowNav(!showNav);
 
   useEffect(() => {
     if (currentPathname !== pathname) {
@@ -55,9 +60,9 @@ function Header({ userToken, setUserToken }) {
         <span>Leaderboard</span>
       </NavLink>
 
-      <NavLink to='!#' onClick={logout}>
+      <div className='NavLink' onClick={logout}>
         <span className='button'>Logout</span>
-      </NavLink>
+      </div>
     </div>
   );
 
