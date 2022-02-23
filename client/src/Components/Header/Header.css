@@ -47,3 +47,34 @@ h2 {
   margin-right: 20px;
 } */
 
+@media only screen and (max-width: 425px) {
+  .header img {
+    height: 60px;
+}
+  .menu {
+    display: none;
+  }
+  .menuitem {
+    background: rgb(17, 48, 66);
+  }
+  .css-onkibi {
+    background: rgb(17, 48, 66);
+    color: white;
+    width: 3em;
+    height: 2em;
+    display: inline-block;
+    line-height: 1em;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    color: currentColor;
+    vertical-align: middle;
+  }
+
+  .chakra-button{
+    background-color: rgb(17, 48, 66);
+    color: white;
+    border: none;
+  }
+
+}

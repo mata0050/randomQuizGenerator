@@ -204,8 +204,6 @@ padding: 0 50px !important;
 
 
 @media only screen and (max-width: 414px) {
-
-
   .grid {
     grid-template-columns: repeat(1, 1fr);
     gap: 40px;
@@ -214,7 +212,6 @@ padding: 0 50px !important;
   .grid img {
     height: 250px;
   }
-
   
 }
 
