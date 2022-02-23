@@ -94,7 +94,7 @@ const getUserQuizResultsGraph = asyncHandler(async (req, res) => {
   //   }
   // });
 
-  res.json([]);
+  res.json(graph);
 });
 
 // @route    POST /api/quiz
