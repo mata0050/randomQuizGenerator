@@ -38,6 +38,65 @@ const getUserQuizResults = asyncHandler(async (req, res) => {
   res.json(rows);
 });
 
+// @route    GET /api/quiz/:user_id
+// @desc     GET quiz
+// @access   Private
+const getUserQuizResultsGraph = asyncHandler(async (req, res) => {
+  const { user_id } = req.params;
+
+  // add quiz
+  const { rows } = await pool.query(
+    'SELECT * FROM quiz WHERE user_id = $1 ORDER BY id DESC',
+    [user_id]
+  );
+
+  const labels = ['Code', 'Python'];
+  const graph = [  {
+    "Java": {
+        "score": []
+    }
+}];
+
+  rows.forEach((element) => {
+    if (!graph.includes({[element.name]:{ score: [] } })) {
+      graph.push({[element.name]: { score: [] }});
+    } else {
+      console.log(graph[graph.indexOf(element.name)]);
+    }
+    // if (!labels.includes(element.name)) {
+    //   labels.push(element.name);
+    // }
+  });
+
+  // const graph = [];
+
+  // rows.forEach((element) => {
+  //   if (labels.includes(element.name)) {
+  //     labels.push({
+  //       label: element.name,
+  //       score: [Math.round((element.score / element.total_questions) * 100)],
+  //     });
+  //     console.log(labels.indexOf(element.name));
+  //   } else {
+  //     console.log(element.name)
+  // labels[element.name].push([
+  //   ...labels,
+  //   {
+  //     label: element.name,
+  //     score: [
+  //       ...labels[element.name].score,
+  //       element.name
+  //       // Math.round((element.score / element.total_questions) * 100),
+  //     ],
+  //   },
+  // ]);
+  //     console.log('sss')
+  //   }
+  // });
+
+  res.json(graph);
+});
+
 // @route    POST /api/quiz
 // @desc     POST quiz
 // @access   Private
@@ -57,5 +116,6 @@ module.exports = {
   addQuiz,
   getUserQuizResults,
   getAllUserQuizResults,
+  getUserQuizResultsGraph,
   getAllUsers,
 };

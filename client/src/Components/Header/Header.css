@@ -1,4 +1,4 @@
-.fixed{
+.fixed {
   position: fixed;
   width: 100%;
   top: 0;
@@ -8,17 +8,18 @@
 .header {
   background: rgb(17, 48, 66);
   /* background: rgb(8, 7, 22); */
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   width: 100%;
-
 }
 
-.header img{
-  height: 70px;
+.header img {
+  height: 60px;
 }
-.menu{
+.menu {
   display: flex;
+  position: relative;
   /* margin-left: 55%; */
 }
 
@@ -30,7 +31,6 @@
   padding: 20px;
   display: inline-block;
   white-space: nowrap;
-
 }
 
 .header .active {
@@ -39,7 +39,7 @@
   border-bottom: 2px solid rgb(22, 128, 177);
   /* padding-top: px; */
 }
- 
+
 h2 {
   padding-left: 20px;
 }
@@ -47,3 +47,53 @@ h2 {
   margin-right: 20px;
 } */
 
+.mobile-navbar {
+  display: none;
+}
+
+/* #active {
+  background: #f0efef;
+} */
+
+.mobileBtn {
+  display: none;
+}
+
+i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+/* media queries */
+@media only screen and (max-width: 880px) {
+  .mobileBtn {
+    display: block;
+  }
+  .mobile-navbar {
+    display: block;
+    margin-right: 30px;
+    margin-top: 10px;
+
+  }
+
+  .header .menu .nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    top: 80px;
+    right: 30px;
+    border-radius: 8px;
+  }
+
+  .header .menu .nav a {
+    color: #F89321;
+    border-radius: 8px;
+  }
+
+  #hide {
+    display: none;
+  }
+}

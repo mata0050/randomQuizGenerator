@@ -1,5 +1,6 @@
 
 // CSS
+import ChartResults from './ChartResults';
 import './User.css';
 
 const UserScoreBoard = ({ results }) => {
@@ -7,6 +8,7 @@ const UserScoreBoard = ({ results }) => {
   return (
     <div className='table '>
       <h2>My Quiz Results</h2>
+      {/* <ChartResults/> */}
       <table className='box-shadow results'>
         <tr>
           <th>Name</th>
