@@ -189,6 +189,7 @@ padding: 0 50px !important;
 
   .search-input input{
     width: 100%;
+    background-color: #fff !important;
   }
 
   .grid {
